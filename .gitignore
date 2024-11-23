@@ -4,5 +4,6 @@ alvamex/
 entrypoint.sh
 .env.dev
 docker-compose-yml
+.env.prod
 
 
