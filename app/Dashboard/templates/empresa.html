@@ -195,7 +195,7 @@
                 </div>
                 <!-- Modales carusel -->
                 {% for principal in principales %} {% if principal.imagen %}
-                <div class="modal fade" id="exampleModal{{principal.id}}" tabindex="-1" aria-labelledby="exampleModalLabel{{principal.id}}" aria-hidden="true">
+                <div class="modal fade" id="exampleModal{{principal.id}}" tabindex="-1" aria-labelledby="exampleModalLabel{{principal.id}}" aria-hidden="true" style="width:100%; height:100%;">
                     <div class="modal-dialog modal-lg" style="background-color: #111111; color: #fff;">
                         <div class="modal-content bg-dark">
                             <div class="modal-header">
@@ -204,7 +204,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <img class="img-fluid w-100 "  src="{{principal.imagen.url}}"  style="object-fit: cover;">
+                            <img class="img-fluid w-100 "  src="{{principal.imagen.url}}"  style="object-fit: fill;">
                             <div class="modal-body">
                                 {{principal.descripcion}}
                                 <br>
@@ -235,8 +235,8 @@
                             </div>
                         </div>
                     </div>          
-                    <div class="modal fade" id="exampleModal2{{secundaria.id}}" tabindex="-1" aria-labelledby="exampleModalLabel{{secundaria.id}}" aria-hidden="true">
-                        <div class="modal-dialog modal-lg" style="background-color: #111111; color: #fff;">
+                    <div class="modal fade" id="exampleModal2{{secundaria.id}}" tabindex="-1" aria-labelledby="exampleModalLabel{{secundaria.id}}" aria-hidden="true" style="height: 100%; weight: 100%;">
+                        <div class="modal-dialog modal-lg" style="background-color: #111111; color: #fff; ">
                             <div class="modal-content bg-dark">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel{{secundaria.id}}" style="color: #fff; text-align: center;">{{secundaria.titulo}}</h5>
@@ -244,8 +244,10 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <img class="img-fluid w-100 " src="{{secundaria.imagen.url}}" style="object-fit: cover; height: 50vh;">
-                                <div class="modal-body">
+                                <img class="img-fluid w-100 "src="{{secundaria.imagen.url}}" style="object-fit: fill;">
+
+                                <div class="modal-body d-block">
+
                                     {{secundaria.descripcion}}
                                 </div>
                                 <div class="modal-footer">
@@ -257,8 +259,6 @@
                     {% endfor %}
                 </div>
             </div>
-        </div>
-    </div>
     <!-- Main News Slider End -->
 
 
@@ -274,8 +274,9 @@
                             <div class="text-truncate"><a class="btn text-white text-uppercase font-weight-semi-bold">Descarga aqui el bolentin del mes! Enterate de mas detalles</a>
                             </div>
                         </div>
-                        <a style="margin-right:1%; padding:1%;color:black;" href="{% static 'filesPDF/Septiembre 2024 T.pdf' %}" target="_blank" class="btn bg-primary text-center font-weight-medium py-2 " style=" width: 170px;">TLALNEPANTLA</a>
-                        <a style="margin-right:1%; padding:1%;color:black;" href="{% static 'filesPDF/Septiembre 2024.pdf' %}" target="_blank" class="btn bg-primary  text-center font-weight-medium py-2" style=" width: 170px;">PALAPA</a>
+                        {% for boletin in boletines %}
+                            <a style="margin-right:1%; padding:1%;color:black;" href="{{boletin.boletin.url}}" target="_blank" class="btn bg-primary text-center font-weight-medium py-2 text-uppercase " style=" width: 170px;">{{boletin.nombre_planta}}</a>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -299,8 +300,8 @@
                         {% for relevante in relevantes %}
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
-                                <img class="img-fluid w-100" src="{{relevante.imagen.url}}" style="object-fit: zoom; height:35vh;">
-                                <div class="bg-white border border-top-0 p-4 overflow-auto" style="height:35vh;">
+                                <img class="img-fluid w-100" src="{{relevante.imagen.url}}" style="object-fit: cover; height: 40vh">
+                                <div class="bg-white border border-top-0 p-4 overflow-auto" style="height:30vh;">
                                     <div class="mb-2">
                                         <a class="badge badge-dark text-uppercase font-weight-semi-bold p-2 mr-2"
                                             href="">Noticia</a>
@@ -329,23 +330,27 @@
                         <div class="bg-white border border-top-0 p-3">
                             <a href="https://www.facebook.com/Alvamex" target="_blank"class="d-block w-100 text-white text-decoration-none mb-3" style="background: #39569E;">
                                 <i class="fab fa-facebook-f text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                                <span id="followers">39 mil Seguidores</span>
+                                <span id="followers">Pinturas Alvamex</span>
                             </a>
                             <a href="https://www.tiktok.com/@alvamexpinturasoficial?_t=8pK758Jln3F&_r=1 " target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #01182b;">
                                 <i class="fab fa-tiktok text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                                <span class="font-weight-medium">173 Seguidores</span>
+                                <span class="font-weight-medium">Alvamex Pinturas Oficial</span>
                             </a>
                             <a href="https://www.linkedin.com/company/alvamex/" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #0185AE;">
                                 <i class="fab fa-linkedin-in text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                                <span class="font-weight-medium">893 Seguidores</span>
+                                <span class="font-weight-medium">ALVAMEX Pinturas</span>
                             </a>
                             <a href="https://www.instagram.com/alvamex_oficial/?hl=es" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #C8359D;">
                                 <i class="fab fa-instagram text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                                <span class="font-weight-medium">2925 Seguidores</span>
+                                <span class="font-weight-medium">alvamex_oficial</span>
                             </a>
                             <a href="https://www.youtube.com/@alvamexpinturas3301" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #DC472E;">
                                 <i class="fab fa-youtube text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                                <span class="font-weight-medium">750 Suscriptores</span>
+                                <span class="font-weight-medium">Alvamex Pinturas</span>
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=100083470983876" target="_blank"class="d-block w-100 text-white text-decoration-none mb-3" style="background: #39569E;">
+                                <i class="fab fa-facebook-f text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                                <span id="followers">Reclutamiento Alvamex</span>
                             </a>
         
                         </div>
@@ -373,7 +378,7 @@
                         <div class="border-none p-1 bg-white overflow-auto" style="height:40vh;">
                              {% for nac in nacs %}
                             <div class="d-flex align-items-center mb-3" style="height: 110px;background:#f2faff;">
-                                <img class="img-fluid" src="{{nac.foto.url}}" alt="{{nac.nombres}}" style="height:11vh; width:8vw;">
+                                <img class="img-fluid" src="{{nac.foto.url}}" alt="{{nac.nombres}}" style="height:13vh; width:8vw;">
                                 <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border-none">
                                     <h2 class="h5 m-0 text-secondary text-uppercase text-center font-weight-bold p-1" style="font-size: 1rem;">¡FELIZ CUMPLEAÑOS {{nac.nombres}}!</h2>
                                     <div class="mb-1">
@@ -433,7 +438,7 @@
                         <div class="bg-white border-none p-1 overflow-auto" style="height:40vh;">
                             {% for aniv in anivs %}
                             <div class="d-flex align-items-center mb-3" style="height: 110px;background:#f2faff;">
-                                <img class="img-fluid" src="{{aniv.foto.url}}" alt="{{aniv.nombres}}" style="height:11vh; width:8vw; object-fit:cover;">
+                                <img class="img-fluid" src="{{aniv.foto.url}}" alt="{{aniv.nombres}}" style="height:13vh; width:8vw;">
                                 <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border-none">
                                     <h2 class="h5 m-0 text-secondary text-uppercase text-center font-weight-bold p-0 "style="font-size: 1rem;">	 ¡GRACIAS POR UN AÑO MAS CON NOSOTROS {{aniv.nombres}}! </h2>
                                     <div class="mb-1">
@@ -528,7 +533,7 @@
                 <form method="POST" action="{% url 'enviar_notificacion' %}">
                     {% csrf_token %}
                     <div class="input-group mb-0" style="width: 100%;">
-                        <input type="text" name="consulta" class="form-control form-control-lg" placeholder="¿Qué noticia buscas?" required>
+                        <input type="text" name="consulta" class="form-control form-control-lg" placeholder="¿Qué noticia buscas?" alt="{{user.username}}" required>
                         <div class="input-group-append">
                             <button type="submit" class="btn btn-primary font-weight-bold px-3">Enviar</button>
                         </div>

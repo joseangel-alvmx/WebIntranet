@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Tareas, VacanteActivas, Ubicaciones,  Empresas, Cursos,SolicitudEmpleo,Puestos,Departamentos,UsuariosGA,Noticias,TipoNoticia,TipoEquipos,SistemaOperativo,DominiosRed,MarcaEquipos,MarcaEquiposMonitor,MarcaEquiposMouse,MarcaEquiposTeclado,MemoriasRam,TipoDiscoC,TipoDiscoD,VersionesOffice,InventarioSoporte,TipoDocumento,Procesos
+from .models import Tareas, VacanteActivas, Ubicaciones,  Empresas, Cursos,SolicitudEmpleo,Puestos,Departamentos,UsuariosGA,Noticias,TipoNoticia,TipoEquipos,SistemaOperativo,DominiosRed,MarcaEquipos,MarcaEquiposMonitor,MarcaEquiposMouse,MarcaEquiposTeclado,MemoriasRam,TipoDiscoC,TipoDiscoD,VersionesOffice,InventarioSoporte,TipoDocumento,Procesos,Promociones,BoletinMensual
 class TareaAdmin(admin.ModelAdmin):
     readonly_fields = ("creacion",)
     
@@ -125,4 +125,13 @@ class ProcesosAdmin(admin.ModelAdmin):
     readonly_fields = ()
     
 admin.site.register(Procesos, ProcesosAdmin)
-  
+
+class PromocionesAdmin(admin.ModelAdmin):
+    readonly_fields = ()
+    
+admin.site.register(Promociones, PromocionesAdmin)
+
+class BoletinMensualAdmin(admin.ModelAdmin):
+    readonly_fields = ()
+    
+admin.site.register(BoletinMensual, BoletinMensualAdmin)

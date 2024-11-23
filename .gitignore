@@ -1,2 +1,8 @@
-.env.prod
 .env.prod.db
+alvamex/
+/app/dockerfile
+entrypoint.sh
+.env.dev
+docker-compose-yml
+
+

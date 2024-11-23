@@ -156,7 +156,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <img class="img-fluid w-100 "  src="{{principal.imagen.url}}"  style="object-fit: cover;">
+                        <img class="img-fluid w-100 "  src="{{principal.imagen.url}}"  style="object-fit: fill;">
                         <div class="modal-body">
                             {{principal.descripcion}}
                             <br>
@@ -196,7 +196,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <img class="img-fluid w-100 " src="{{secundaria.imagen.url}}" style="object-fit: cover; height: 50vh;">
+                            <img class="img-fluid w-100 " src="{{secundaria.imagen.url}}" style="object-fit: fill;">
                             <div class="modal-body">
                                 {{secundaria.descripcion}}
                             </div>
@@ -226,8 +226,9 @@
                         <div class="text-truncate"><a class="btn text-white text-uppercase font-weight-semi-bold">Descarga aqui el bolentin del mes! Enterate de mas detalles</a>
                         </div>
                     </div>
-                    <a style="margin-right:1%; padding:1%;color:black;" href="{% static 'filesPDF/Septiembre 2024 T.pdf' %}" target="_blank" class="btn bg-primary text-center font-weight-medium py-2 " style=" width: 170px;">TLALNEPANTLA</a>
-                    <a style="margin-right:1%; padding:1%;color:black;" href="{% static 'filesPDF/Septiembre 2024.pdf' %}" target="_blank" class="btn bg-primary  text-center font-weight-medium py-2" style=" width: 170px;">PALAPA</a>
+                    {% for boletin in boletines %}
+                        <a style="margin-right:1%; padding:1%;color:black;" href="{{boletin.boletin.url}}" target="_blank" class="btn bg-primary text-center font-weight-medium py-2 text-uppercase " style=" width: 170px;">{{boletin.nombre_planta}}</a>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -251,7 +252,7 @@
                     {% for relevante in relevantes %}
                     <div class="col-lg-6">
                         <div class="position-relative mb-3">
-                            <img class="img-fluid w-100" src="{{relevante.imagen.url}}" style="object-fit: cover;">
+                            <img class="img-fluid w-100" src="{{relevante.imagen.url}}" style="object-fit: cover; height: 40vh">
                             <div class="border border-top-0 p-4 overflow-auto bg-dark" style="height:35vh;">
                                 <div class="mb-2 ">
                                     <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2 text-dark"
@@ -273,36 +274,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <!-- Redes Sociales Inicio -->
-                <div class="mb-3">
-                    <div class="section-title bg-dark mb-0">
-                        <h4 class="m-0 text-uppercase font-weight-bold">Redes Sociales</h4>
-                    </div>
-                    <div class="bg-white border border-top-0 p-3">
-                        <a href="https://www.facebook.com/Alvamex" target="_blank"class="d-block w-100 text-white text-decoration-none mb-3" style="background: #39569E;">
-                            <i class="fab fa-facebook-f text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                            <span id="followers">39 mil Seguidores</span>
-                        </a>
-                        <a href="https://www.tiktok.com/@alvamexpinturasoficial?_t=8pK758Jln3F&_r=1 " target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #01182b;">
-                            <i class="fab fa-tiktok text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                            <span class="font-weight-medium">173 Seguidores</span>
-                        </a>
-                        <a href="https://www.linkedin.com/company/alvamex/" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #0185AE;">
-                            <i class="fab fa-linkedin-in text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                            <span class="font-weight-medium">893 Seguidores</span>
-                        </a>
-                        <a href="https://www.instagram.com/alvamex_oficial/?hl=es" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #C8359D;">
-                            <i class="fab fa-instagram text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                            <span class="font-weight-medium">2925 Seguidores</span>
-                        </a>
-                        <a href="https://www.youtube.com/@alvamexpinturas3301" target="_blank" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #DC472E;">
-                            <i class="fab fa-youtube text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                            <span class="font-weight-medium">750 Suscriptores</span>
-                        </a>
-    
-                    </div>
-                </div>
-                <!-- Redes Sociales Fin -->
+                
 
                 <!-- Anuncios inicio-->
                 <div class="mb-3">
@@ -319,7 +291,7 @@
 
                 <!-- Popular News Start -->
                 <div class="mb-3">
-                    <div class="section-title mb-0">
+                    <div class="section-title mb-0  bg-dark">
                         <h4 class="m-0 text-uppercase font-weight-bold">¡CUMPLEAÑOS!</h4>
                     </div>
                     <div class="border-none p-1 bg-white overflow-auto" style="height:40vh;">
@@ -379,7 +351,7 @@
                     </div>
                 </div>
                 
-                    <div class="section-title mb-0">
+                    <div class="section-title mb-0 bg-dark">
                         <h4 class="m-0 text-uppercase font-weight-bold">¡ANIVERSARIOS!</h4>
                     </div>
                     <div class="bg-white border-none p-1 overflow-auto" style="height:40vh;">
@@ -458,7 +430,7 @@
             <h4 class="section-title bg-dark mb-4 text-uppercase font-weight-bold" style="border-top:none;border-bottom:none;border-right:none;">Encuentranos en</h4>
             <p class="font-weight-medium text-white"><i class="fa fa-map-marker-alt mr-2"></i>Carretera Federal, Carr. México Tulancingo 11, 55850 San Martín de las Pirámides, Méx.</p>
             <p class="font-weight-medium text-white"><i class="fa fa-phone-alt mr-2"></i>594 958 5900</p>
-            <p class="font-weight-medium text-white"><i class="fa fa-envelope mr-2"></i>yesenia.marquez@tradepolymers.com.mx</p>
+            <p class="font-weight-medium text-white"><i class="fa fa-envelope mr-2"></i>clientes@tradepolymers.com.mx</p>
             <h6 class="mt-4 mb-3  text-uppercase font-weight-bold">Siguenos</h6>
             <div class="d-flex justify-content-start">
                 <a ID="iconos_redes" class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://www.tiktok.com/@alvamexpinturasoficial?_t=8pK758Jln3F&_r=1"><i class="fab fa-tiktok"></i></a>
