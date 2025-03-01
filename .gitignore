@@ -1,2 +1,6 @@
 .env.prod
 .env.prod.db
+media/
+env/
+actulizaciones/
+

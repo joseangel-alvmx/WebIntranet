@@ -40,6 +40,25 @@
         color:var(--principal);
         scale:1.5;
     }
+    #netsuite_logo{
+        height: 2.5rem;
+        animation: 3s slide-in;
+        
+      }
+    #netsuite_logo:hover{
+        scale: 1.2;
+        transition: 0.5s;
+        filter: drop-shadow(5px 5px 5px rgb(255,255,255));
+      }
+      #container {
+        width:100%;
+        display: flex;
+        justify-content: center;
+        gap: 3%;
+        padding: 5vw;
+        margin-left:0%;
+
+    }
 
 </style>
     <!-- Topbar Start -->
@@ -114,7 +133,7 @@
                     <a href="#footer_idx" class="nav-item nav-link">Contacto</a>
                 </div>
                 <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" >
-                    <a href="https://system.netsuite.com/pages/customerlogin.jsp" class="nav-item nav-link" target="blank_"><img src="{% static 'imagenes/netsuite.png' %}" alt="netsuite" style="height: 4rem;"></a>
+                    <a href="https://system.netsuite.com/pages/customerlogin.jsp" class="nav-item nav-link" target="blank_"><img src="{% static 'imagenes/netsuite.png' %}" alt="netsuite" id="netsuite_logo"></a>
                 </div>
                 <div class="navbar-nav  py-0" style="width: 100%; max-width: 200px;">
                     
@@ -127,10 +146,55 @@
         </nav>
     </div>
     <!-- Navbar End -->
+<!--Bizagi Procesos-->
+<div class="container-fluid mt-1 bg-none">
+    <div class="row g-10">
+        <div class="container-fluid p-4 " id="container">
+            <ul class="list-group list-group-horizontal" id="menu">
+                <li class="list-group-item" onclick="mostrarIframe('iframeContainer')">
+                    <img src="{% static 'imagenes/bizagi.png' %}" alt="Opción 1" style="width: 225px; height: 225px;">
+                </li>
+                <li class="list-group-item" onclick="mostrarIframe('iframeContainer2')">
+                    <img src="{% static 'imagenes/bizagi2.png' %}" alt="Opción 2" style="width: 225px; height: 225px;">
+                </li>
+                <li class="list-group-item" onclick="mostrarIframe('iframeContainer3')">
+                    <img src="{% static 'imagenes/bizagi3.png' %}" alt="Opción 3" style="width: 225px; height: 225px;">
+                </li>
+                <li class="list-group-item">
+                    <img src="{% static 'imagenes/bizagi4.png' %}" alt="Opción 4" style="width: 225px; height: 225px;">
+                </li>
+                <li class="list-group-item">
+                    <img src="{% static 'imagenes/bizagi5.png' %}" alt="Opción 5" style="width: 225px; height: 225px;">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div id="iframeContainer" style="display: none;">
+                <iframe id="iframe" src="http://175.168.40.30/Bizagi/ALVAMEX/V2C_ALVAMEX.html#list/" width="100%" height="800"></iframe>
+            </div>
+            <div id="iframeContainer2" style="display: none;">
+                <iframe id="iframe" src="http://175.168.40.30/Bizagi/ALVAMEX/C2/C2_ALVAMEX.html#list/" width="100%" height="800"></iframe>
+            </div>
+            <div id="iframeContainer3" style="display: none;">
+                <iframe id="iframe" src="http://175.168.40.30/Bizagi/ALVAMEX/C2I/C2I_ALVAMEX.html#list/" width="100%" height="800"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <iframe style="overflow-x: hidden;" src="http://175.168.40.30/Bizagi/ALVAMEX/V2C_ALVAMEX.html#list/" width="100%" height="800"></iframe>
-
-
+<script>
+    function mostrarIframe(iframeId) {
+        // Ocultar todos los iframes
+        document.getElementById('iframeContainer').style.display = 'none';
+        document.getElementById('iframeContainer2').style.display = 'none';
+        document.getElementById('iframeContainer3').style.display = 'none';
+        
+        // Mostrar el seleccionado
+        document.getElementById(iframeId).style.display = 'block';
+    }
+</script>
 <!-- Footer Start -->
 <div id="footer_idx" class="container-fluid bg-dark pt-1 px-sm-3 px-md-5 mt-1">
     <div class="row py-4">
