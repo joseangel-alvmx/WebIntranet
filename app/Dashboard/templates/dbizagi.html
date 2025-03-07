@@ -54,7 +54,17 @@
         #netsuite_logo:hover{
             scale: 1.2;
             transition: 0.5s;
-            filter: drop-shadow(5px 5px 5px rgb(255,255,255));
+            filter: drop-shadow(5px 5px 5px rgb(28, 233, 21));
+          }
+        #mylearn{
+            height: 2.3rem;
+            animation: 3s slide-in;
+            
+          }
+        #mylearn:hover{
+            scale: 1.2;
+            transition: 0.5s;
+            filter: drop-shadow(5px 5px 5px rgb(28, 233, 21));
           }
           #container {
             width:100%;
@@ -64,6 +74,130 @@
             padding: 5vw;
             margin-left:0%;
     
+        }
+        .parent-2{
+            display: grid;
+            grid-template-rows: 2fr 4fr 2fr;
+            width: 100vw;
+            height: 100vh;
+            margin: auto;
+            background: rgb(230, 230, 230);
+        }
+        .section_1 { 
+            display: grid;
+            grid-row: 1; 
+            background-color: none; 
+            grid-template-rows: 2fr 1fr;
+            grid-template-columns: repeat(10, 1fr);
+            margin-top: -3vw;
+            
+        }
+        #titulo_img{
+            display: grid;
+            grid-row: 1; grid-column:span 10;
+            justify-content: center; 
+            align-items: center;
+            height: fit-content;
+            margin-top: 3%;
+            
+            
+            
+        }
+        #titulo_img > img{
+            width: 95vw; /* Aumenta el ancho */
+            height: fit-content;
+            object-fit: cover;
+        }
+        
+        
+        #img_ruta2{
+            display: grid;
+            grid-row: 2; 
+            grid-column:span 10;
+            grid-template-columns: 1fr 20px 1fr 20px 80px 1fr 20px 1fr 20px 1fr;
+            height: fit-content;
+        }
+        #img_procesos > a >img{
+            animation: 3s slide-in;
+            height: 90%;
+            width: 90%;       
+            margin: auto;
+            margin-left: 3%;
+    
+        }
+        #img_procesos > a >img:hover{
+            scale: 1.2;
+            transition: 0.5s;
+            filter: drop-shadow(5px 5px 5px rgb(134, 132, 132));
+        }
+        .flecha {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .flecha > img {
+            width: 30vw; /* Ajusta el tamaño según necesites */
+            height: auto;
+        }
+        
+        .section_2 { grid-row: 2; grid-column: 1; background-color: none; padding: 1%; margin-top: -3vw; margin-left: 5%;
+            
+        }
+        .section_2 > img{
+            width: 90%; /* Aumenta el ancho */
+            height: 90%;
+            justify-content: center; 
+            align-items: center;
+    
+        }
+        .section_3 {
+            display: grid;
+            grid-row: 3;  
+            grid-template-rows:-10px 70px 1fr;
+            grid-template-columns: repeat(7, 1fr);
+            margin-top: -2vw;
+        }
+        #encabezados_img3{
+            grid-column: span 2 / 6;
+            width: 110%;
+            height: fit-content;
+            margin-left: -13vw;
+            margin-top: -3vw;
+    
+        
+        }    
+        #botones-f{
+            display: grid;
+            grid-row: 2;
+            grid-template-columns: 2fr 1fr 60px 1fr 60px 1fr 2fr;
+            grid-column:span 7;
+            height: fit-content;
+        }
+        #btn_img > a >img{
+            animation: 3s slide-in;
+            height: 90%;
+            width: 90%;
+            margin: auto;
+            margin-top: 2%;
+    
+        }
+        #btn_img > a >img:hover{
+            scale: 1.2;
+            transition: 0.5s;
+            filter: drop-shadow(5px 5px 5px rgb(134, 132, 132));
+        }
+        #titulo_f{
+            display: flex;
+            grid-row: 3; grid-column:span 7;
+            justify-content: center; 
+            align-items: center;
+            
+        }
+        #titulo_f > img{
+            width: 94vw; /* Aumenta el ancho */
+            height: fit-content;
+            object-fit: cover;
         }
         
     </style>
@@ -107,7 +241,7 @@
         {% endif %}
         </div>
         <div class="col-lg-4 text-center text-lg-right" style="height: 4rem;">
-            <a href="https://www.alvamex.com.mx/"><img class="img-fluid" src="{% static 'imagenes/LogoDiamante.jpg' %}" alt="Diamante" style="height: 100%;"></a>
+            <a href="https://www.diamantepinturas.com.mx/"><img class="img-fluid" src="{% static 'imagenes/LogoDiamante.jpg' %}" alt="Diamante" style="height: 100%;"></a>
         </div>
     </div>
 </div>
@@ -138,8 +272,13 @@
                 </div>
                 <a href="#footer_idx" class="nav-item nav-link">Contacto</a>
             </div>
-            <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" >
-                <a href="https://system.netsuite.com/pages/customerlogin.jsp" class="nav-item nav-link" target="blank_"><img src="{% static 'imagenes/netsuite.png' %}" alt="netsuite" id="netsuite_logo"></a>
+            <div class="d-flex navbar-collapse justify-content-start">
+                <a href="https://system.netsuite.com/pages/customerlogin.jsp" class="nav-item nav-link" target="_blank">
+                    <img src="{% static 'imagenes/netsuite.png' %}" alt="netsuite" id="netsuite_logo">
+                </a>
+                <a href="https://signon.oracle.com/signin" class="nav-item nav-link" target="_blank">
+                    <img src="{% static 'imagenes/logo_mylearn.png' %}" alt="mylearn" id="mylearn">
+                </a>
             </div>
             <div class="navbar-nav  py-0" style="width: 100%; max-width: 200px;">
 
@@ -153,52 +292,121 @@
 </div>
 <!-- Navbar End -->
  <!--Bizagi Procesos-->
- <div class="container-fluid text-center mt-1 bg-none">
-    <div class="row g-10">
-        <div class="container-fluid p-4" id="container">
-            <ul class="list-group list-group-horizontal" id="menu">
-                <li class="list-group-item" onclick="mostrarIframe('iframeContainer')">
-                    <img src="{% static 'imagenes/bizagi.png' %}" alt="Opción 1" style="width: 225px; height: 225px;">
-                </li>
-                <li class="list-group-item" onclick="mostrarIframe('iframeContainer2')">
-                    <img src="{% static 'imagenes/bizagi2.png' %}" alt="Opción 2" style="width: 225px; height: 225px;">
-                </li>
-                <li class="list-group-item" onclick="mostrarIframe('iframeContainer3')">
-                    <img src="{% static 'imagenes/bizagi3.png' %}" alt="Opción 3" style="width: 225px; height: 225px;">
-                </li>
-                <li class="list-group-item">
-                    <img src="{% static 'imagenes/bizagi4.png' %}" alt="Opción 4" style="width: 225px; height: 225px;"> 
-                </li>
-                <li class="list-group-item">
-                    <img src="{% static 'imagenes/bizagi5.png' %}" alt="Opción 5" style="width: 225px; height: 225px;">
-                </li>
-            </ul>
+ <div class="parent-2" >
+    <div class="section_1">
+            <div id="titulo_img">
+                <img src="{% static 'imagenes/head_procesos.png' %}" alt="">
+            </div>
+            <div id="img_ruta2">
+                <div id="img_procesos"  style=" grid-column: 1; text-align: center;">
+                    <a href="#" onclick="openModal(['http://175.168.40.30/Bizagi/2_Diamante_pinturas/1_1_P1E/index.html#list'])">
+                        <img src="{% static 'imagenes/btn_1_1_planeacion_estrategica.png' %}" alt="planeacion" style="width: 13vw;" target="blank_">
+                    </a>
+                </div>
+                <div class="flecha">
+                    <img src="{% static 'imagenes/fle_right.png' %}" alt="Flecha" >
+                </div>
+                <div id="img_procesos" style="grid-column: 3;  text-align: center; ">
+                    <a href="#" onclick="openModal(['http://175.168.40.30/Bizagi/2_Diamante_pinturas/1_2_I1N/index.html#list'])" >
+                        <img src="{% static 'imagenes/btn_1_2_integridad_normativa.png' %}" alt="integridad_normativa" style="width: 13vw;" target="blank_">
+                    </a>
+                </div>
+                <div class="flecha">
+                    <img src="{% static 'imagenes/fle_right.png' %}" alt="Flecha">
+                </div>
+                <div id="img_procesos"  style=" grid-column: 6; text-align: center;">
+                    <a href="#" onclick="openModal(['http://175.168.40.30/Bizagi/2_Diamante_pinturas/1_V2C/index.html#list'])" >
+                        <img src="{% static 'imagenes/btn_venta_cobro.png' %}" alt="venta_cobro" style="width: 13vw;" target="blank_">
+                    </a>
+                </div>
+                <div class="flecha">
+                    <img src="{% static 'imagenes/fle_right.png' %}" alt="Flecha">
+                </div>
+                <div id="img_procesos"  style=" grid-column: 8; text-align: center;">
+                    <a href="#" onclick="openModal(['http://175.168.40.30/Bizagi/2_Diamante_pinturas/2_C2P/index.html#list'])" >
+                        <img src="{% static 'imagenes/btn_compra_pago.png' %}" alt="compra_pago" style="width: 13vw;" target="blank_">
+                    </a>
+                </div>
+                <div class="flecha">
+                    <img src="{% static 'imagenes/fle_right.png' %}" alt="Flecha">
+                </div>
+                <div id="img_procesos"  style=" grid-column: 10; text-align: center;">
+                    <a href="#" onclick="openModal(['http://175.168.40.30/Bizagi/2_Diamante_pinturas/6_ADM/index.html#list'])" >
+                        <img src="{% static 'imagenes/btn_administracion.png' %}" alt="administracion" style="width: 13vw;" target="blank_">
+                    </a>
+                </div>
+            </div>
+            
+    </div>
+    <div class="section_2">
+        <img src="{% static 'imagenes/mapa_bzg.png' %}" alt="">
+    </div>
+    <div class="section_3">
+        <div id="encabezados_img3">
+            <img src="{% static 'imagenes/encabezado_3.png' %}" alt="">
+        </div>
+        <div id="botones-f">
+            <div id="btn_img" style="grid-column: 2; text-align: center; ">
+                <a href="#" onclick="openModal(['http://175.168.40.30/Bizagi/2_Diamante_pinturas/3_C2I/index.html#list'])">
+                    <img src="{% static 'imagenes/btn_configuracion_inventario.png' %}" alt="planeacion" style="width: 15vw;" target="blank_">
+                </a>
+            </div>
+            <div class="flecha">
+                <img src="{% static 'imagenes/fle_right.png' %}" alt="Flecha" style="width: 20px;">
+            </div>
+            <div id="btn_img" style="grid-column: 4; text-align: center; ">
+                <a href="#" onclick="openModal(['http://175.168.40.30/Bizagi/2_Diamante_pinturas/4_R2R/index.html#list'])">
+                    <img src="{% static 'imagenes/btn_registro_reporte.png.png' %}" alt="planeacion" style="width: 15vw;" target="blank_">
+                </a>
+            </div>
+            <div class="flecha">
+                <img src="{% static 'imagenes/fle_right.png' %}" alt="Flecha" style="width: 20px;">
+            </div>
+            <div id="btn_img" style="grid-column: 6; text-align: center; ">
+                <a href="#" onclick="openModal(['http://175.168.40.30/Bizagi/2_Diamante_pinturas/5_P2P/index.html#list'])">
+                    <img src="{% static 'imagenes/btn_planeacion_produccion.png' %}" alt="planeacion" style="width: 15vw;" target="blank_">
+                </a>
+            </div>
+        </div>
+        <div id="titulo_f">
+            <img src="{% static 'imagenes/titulo-f.png' %}" alt="">
         </div>
     </div>
-    <div class="row mt-3">
-        <div class="col-md-12">
-            <div id="iframeContainer" style="display: none;">
-                <iframe src="http://175.168.40.30/Bizagi/DIAMANTE/V2C_DIAMANTE.html#list" width="100%" height="800"></iframe>
+</div>
+<!-- Modal -->
+<div class="modal top fade" id="iframeModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true"
+    data-mdb-backdrop="true" data-mdb-keyboard="true">
+    <div class="modal-dialog modal-fullscreen" style="max-width: 100%; max-height: 95%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div id="iframeContainer2" style="display: none;">
-                <iframe src="http://175.168.40.30/Bizagi/DIAMANTE/C2/C2_DIAMANTE.html#list/" width="100%" height="800"></iframe>
-            </div>
-            <div id="iframeContainer3" style="display: none;">
-                <iframe src="http://175.168.40.30/Bizagi/DIAMANTE/C2I/C2I_DIAMANTE.html#list/" width="100%" height="800"></iframe>
+            <div class="modal-body p-0" id="iframeContainer" style="height: 100vh; width: 100vw;  overflow: hidden;">
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    function mostrarIframe(iframeId) {
-        // Ocultar todos los iframes
-        document.getElementById('iframeContainer').style.display = 'none';
-        document.getElementById('iframeContainer2').style.display = 'none';
-        document.getElementById('iframeContainer3').style.display = 'none';
-        
-        // Mostrar el seleccionado
-        document.getElementById(iframeId).style.display = 'block';
+    function openModal(urls) {
+        let container = document.getElementById('iframeContainer');
+        container.innerHTML = '';
+        urls.forEach(url => {
+            let iframe = document.createElement('iframe');
+            iframe.src = url;
+            iframe.width = '100%';
+            iframe.height = '100%';
+            iframe.style.border = 'none';
+            iframe.style.position = 'absolute';
+            iframe.style.top = '0';
+            iframe.style.left = '0';
+            iframe.style.bottom = '0';
+            iframe.style.right = '0';
+            container.appendChild(iframe);
+            container.appendChild(document.createElement('br'));
+        });
+        var modal = new bootstrap.Modal(document.getElementById('iframeModal'));
+        modal.show();
     }
 </script>
 
